@@ -12,282 +12,138 @@ import DataCardView from './DataCardView';
 
 const filternames = [{
     "id": 1,
-    "filtername": "Fruit Name"
+    "filtername": "Job"
 },{
     "id": 2,
-    "filtername": "Color"
+    "filtername": "Skills"
 },{
     "id": 3,
-    "filtername": "Quantity"
+    "filtername": "Experience"
 },{
     "id": 4,
     "filtername": "Location"
-},];
+}];
 
 const items = [{
     "id": 1,
     "job": "Software",
     "skill": ['coding','testing','reqiurement_analysis'],
-    "Experience":1,
+    "experience":1,
     "location": "Delhi"
 },{
     "id": 2,
-    "fruit_name": "Apricot",
-    "color": "orange",
-    "quantity": "15",
-    "location": "Bengaluru"
+    "job": "Web Development",
+    "skill": ['coding','testing','reqiurement_analysis'],
+    "experience":3,
+    "location": "Pune"
 },{
     "id": 3,
-    "fruit_name": "Avocado",
-    "color": "green",
-    "quantity": "20",
-    "location": "Pune"
+    "job": "App Development",
+    "skill": ['Android','java','sdk', 'c++'],
+    "experience":5,
+    "location": "Bengaluru"
 },{
     "id": 4,
-    "fruit_name": "Banana",
-    "color": "yellow",
-    "quantity": "30",
-    "location": "Noida"
+    "job": "Android App Development",
+    "skill": ['business process', 'outsourcing', 'operations', 'git'],
+    "experience":5,
+    "location": "Bengaluru"
 },{
     "id": 5,
-    "fruit_name": "Bilberry",
-    "color": "red",
-    "quantity": "10",
-    "location": "Bengaluru"
+    "job": "Software developer",
+    "skill": ['software development', 'software engineering', 'java', 'c++'],
+    "experience":1,
+    "location": "Chennai"
 },{
-    "id": "6",
-    "fruit_name": "Blackberry",
-    "color": "red",
-    "quantity": "15",
-    "location": "Pune"
+    "id": 6,
+    "job": "php developer",
+    "skill": ['javascript', 'css', 'ajax', 'jquery', 'php'],
+    "experience":3,
+    "location": "Noida"
 },{
     "id": 7,
-    "fruit_name": "Blackcurrant",
-    "color": "black",
-    "quantity": "20",
-    "location": "Delhi"
-},{
-    "id": 8,
-    "fruit_name": "Blueberry",
-    "color": "blue",
-    "quantity": "30",
+    "job": "Software developer",
+    "skill": ['Python', 'Ruby on Rails', 'software development'],
+    "experience":2,
     "location": "Bengaluru"
 },{
-    "id": 9,
-    "fruit_name": "Boysenberry",
-    "color": "red",
-    "quantity": "10",
+    "id": 8,
+    "job": "Team lead: Server and Database",
+    "skill": ['css', 'html', 'jquery', 'mysql', 'json', 'xml'],
+    "experience":4,
     "location": "Delhi"
 },{
+    "id": 9,
+    "job": "MS SQL DBA",
+    "skill": ['sql dba', 'clustring', ],
+    "experience":2,
+    "location": "Noida"
+},{
     "id": 10,
-    "fruit_name": "Cherry",
-    "color": "red",
-    "quantity": "15",
+    "job": "Application Development",
+    "skill": ['Linux', 'Hibernate', 'core java', 'shell scripting'],
+    "experience":8,
     "location": "Pune"
 },{
     "id": 11,
-    "fruit_name": "Cloudberry",
-    "color": "orange",
-    "quantity": "20",
-    "location": "Delhi"
+    "job": "Senior Software Developer",
+    "skill": ['java', 'mysql', 'angular js', 'REST api','html5'],
+    "experience":5,
+    "location": "Chennai"
 },{
     "id": 12,
-    "fruit_name": "Coconut",
-    "color": "brown",
-    "quantity": "30",
-    "location": "Noida"
+    "job": "Software Test Engineer",
+    "skill": ['test engineering', 'test planing', 'manual testing'],
+    "experience":3,
+    "location": "Chennai",
 },{
     "id": 13,
-    "fruit_name": "Cranberry",
-    "color": "black",
-    "quantity": "10",
+    "job": "Quality Analyst",
+    "skill": ['quality testing', 'selenium', 'DVB'],
+    "experience":4,
     "location": "Bengaluru"
 },{
     "id": 14,
-    "fruit_name": "Cucumber",
-    "color": "green",
-    "quantity": "15",
-    "location": "Noida"
+    "job": "Software Testing",
+    "skill": ['test planning', 'software testing', 'manual testing'],
+    "experience":1,     
+    "location": "Chennai"
 },{
     "id": 15,
-    "fruit_name": "Dragonfruit",
-    "color": "red",
-    "quantity": "20",
-    "location": "Pune"
+    "job": "Android App Development",
+    "skill": ['test planning', 'software testing', 'manual testing'],
+    "experience":4,
+    "location": "Noida"
 },{
     "id": 16,
-    "fruit_name": "Elderberry",
-    "color": "blue",
-    "quantity": "30",
-    "location": "Pune"
+    "job": "Android App Development",
+    "skill": ['java', 'mysql', 'angular js', 'REST api','html5'],
+    "experience":3,
+    "location": "Noida"
 },{
     "id": 17,
-    "fruit_name": "Goji berry",
-    "color": "red",
-    "quantity": "10",
-    "location": "Delhi"
+    "job": "Software Development",
+    "skill": ['css', 'html', 'jquery', 'mysql', 'json', 'xml'],
+    "experience":2,
+    "location": "Bengaluru"
 },{
     "id": 18,
-    "fruit_name": "Gooseberry",
-    "color": "green",
-    "quantity": "15",
-    "location": "Noida"
+    "job": "Web Development",
+    "skill": ['css', 'html', 'php', 'javascript'],
+    "experience":1,
+    "location": "Delhi"
 },{
     "id": 19,
-    "fruit_name": "Grape",
-    "color": "green",
-    "quantity": "20",
-    "location": "Pune"
+    "job": "Web Development",
+    "skill": ['css', 'html', 'php', 'javascript'],
+    "experience":2,
+    "location": "Noida"
 },{
     "id": 20,
-    "fruit_name": "Guava",
-    "color": "green",
-    "quantity": "30",
+    "job": "Web Development",
+    "skill": ['css', 'html', 'php', 'javascript'],
+    "experience":3,
     "location": "Delhi"
-},{
-    "id": 21,
-    "fruit_name": "Honeyberry",
-    "color": "blue",
-    "quantity": "10",
-    "location": "Noida"
-},{
-    "id": 22,
-    "fruit_name": "Huckleberry",
-    "color": "blue",
-    "quantity": "15",
-    "location": "Bengaluru"
-},{
-    "id": 23,
-    "fruit_name": "Apple",
-    "color": "green",
-    "quantity": "40",
-    "location": "Pune"
-},{
-    "id": 24,
-    "fruit_name": "Apricot",
-    "color": "orange",
-    "quantity": "60",
-    "location": "Delhi"
-},{
-    "id": 25,
-    "fruit_name": "Avocado",
-    "color": "green",
-    "quantity": "100",
-    "location": "Noida"
-},{
-    "id": 26,
-    "fruit_name": "Banana",
-    "color": "yellow",
-    "quantity": "130",
-    "location": "Bhuvneshver"
-},{
-    "id": 27,
-    "fruit_name": "Bilberry",
-    "color": "red",
-    "quantity": "40",
-    "location": "Bhuvneshver"
-},{
-    "id": 28,
-    "fruit_name": "Blackberry",
-    "color": "red",
-    "quantity": "60",
-    "location": "Bhuvneshver"
-},{
-    "id": 29,
-    "fruit_name": "Blackcurrant",
-    "color": "red",
-    "quantity": "100",
-    "location": "Delhi"
-},{
-    "id": 30,
-    "fruit_name": "Blueberry",
-    "color": "red",
-    "quantity": "130",
-    "location": "Bhuvneshver"
-},{
-    "id": 31,
-    "fruit_name": "Boysenberry",
-    "color": "blue",
-    "quantity": "40",
-    "location": "Bengaluru"
-},{
-    "id": 32,
-    "fruit_name": "Cherry",
-    "color": "red",
-    "quantity": "60",
-    "location": "Bhuvneshver"
-},{
-    "id": 33,
-    "fruit_name": "Cloudberry",
-    "color": "red",
-    "quantity": "100",
-    "location": "Delhi"
-},{
-    "id": 34,
-    "fruit_name": "Coconut",
-    "color": "red",
-    "quantity": "130",
-    "location": "Bhuvneshver"
-},{
-    "id": 35,
-    "fruit_name": "Cranberry",
-    "color": "red",
-    "quantity": "40",
-    "location": "Delhi"
-},{
-    "id": 36,
-    "fruit_name": "Cucumber",
-    "color": "red",
-    "quantity": "60",
-    "location": "Bhuvneshver"
-},{
-    "id": 37,
-    "fruit_name": "Dragonfruit",
-    "color": "red",
-    "quantity": "100",
-    "location": "Delhi"
-},{
-    "id": 38,
-    "fruit_name": "Elderberry",
-    "color": "black",
-    "quantity": "130",
-    "location": "Delhi"
-},{
-    "id": 39,
-    "fruit_name": "Goji berry",
-    "color": "red",
-    "quantity": "40",
-    "location": "Delhi"
-},{
-    "id": 40,
-    "fruit_name": "Gooseberry",
-    "color": "red",
-    "quantity": "60",
-    "location": "Delhi"
-},{
-    "id": 41,
-    "fruit_name": "Grape",
-    "color": "black",
-    "quantity": "100",
-    "location": "Bengaluru"
-},{
-    "id": 42,
-    "fruit_name": "Guava",
-    "color": "red",
-    "quantity": "130",
-    "location": "Bhuvneshver"
-},{
-    "id": 43,
-    "fruit_name": "Honeyberry",
-    "color": "blue",
-    "quantity": "40",
-    "location": "Delhi"
-},{
-    "id": 44,
-    "fruit_name": "Huckleberry",
-    "color": "red",
-    "quantity": "60",
-    "location": "Bhuvneshver"
 }];
 
 class MainActivity extends Component {
@@ -317,11 +173,15 @@ class MainActivity extends Component {
         break;
 
         case '4':
-        this.setModalVisible(true)
+        this.props.navigation.navigate('Filter4', {filterLocation :this.functionFoo})
         break;
 
     }
-    }      
+    } 
+
+    functionFoo = () => {
+        console.log("test");
+    }
  
  FlatListItemSeparator = () => {
      return (
@@ -347,8 +207,9 @@ class MainActivity extends Component {
 
    setModalVisible(visible) {
     this.setState({modalVisible: visible});
-
   }
+
+
   
     render()
      {

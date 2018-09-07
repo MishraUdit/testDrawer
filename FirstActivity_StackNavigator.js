@@ -9,7 +9,7 @@ import Filter1 from './Filter1';
 import Filter2 from './Filter2';
 import Filter3 from './Filter3';
 import Filter4 from './Filter4';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
 class HamburgerIcon extends Component {
   toggleDrawer=()=>{
@@ -30,7 +30,7 @@ class HamburgerIcon extends Component {
     );
   }
 }
-const FirstActivity_StackNavigator = StackNavigator({
+const FirstActivity_StackNavigator = createStackNavigator({
     First: {
       screen: MainActivity, 
       navigationOptions: ({ navigation }) => ({

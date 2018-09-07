@@ -35,13 +35,13 @@ export default class DataCardView  extends Component {
             <Card
             containerStyle = {{width: '100%', margin: 0, padding: 0}}
         >
-            <Text style={{marginTop: 10, marginLeft: 10, fontSize: 20, fontWeight: '900',  width: '70%'}}>{this.props.data.fruit_name}
+            <Text style={{marginTop: 10, marginLeft: 10, fontSize: 20, fontWeight: '900',  width: '70%'}}>{this.props.data.job}
             </Text>
             <Text style={{marginLeft: 10, marginTop: 2, fontSize: 12, fontWeight: '500', width: '70%'}}>
             {this.props.data.color}
             </Text>
             <View style = {{flexDirection: 'row', width: '70%', marginLeft: 10, marginTop: 2, }}>
-            <Text style={{fontSize: 12, fontWeight: '200', width: '40%', margin: 1, }}>{this.props.data.quantity}</Text>
+            <Text style={{fontSize: 12, fontWeight: '200', width: '40%', margin: 1, }}>{this.props.data.experience}</Text>
             <Text style={{fontSize: 12, fontWeight: '200', width: '55%', margin: 1, textAlign: 'center',}}>{this.props.data.location}</Text>
             </View>
             <View style = {{width: '100%', height: 1, marginTop: 100, backgroundColor: 'red'}}></View>
