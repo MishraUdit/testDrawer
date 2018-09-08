@@ -155,6 +155,7 @@ class MainActivity extends Component {
         isSelected: false,
         modalVisible: false,
       }
+    //   this.props.ScreenProps.key
     }
 
     GetFlatListItem (item) {

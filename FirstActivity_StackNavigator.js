@@ -26,6 +26,7 @@ class HamburgerIcon extends Component {
             style={{ width: 25, height: 25, marginLeft: 15}}
           />
         </TouchableOpacity>
+        {/* <FirstActivity_StackNavigator screenProps ={{key:'value'}}/> */}
       </View>
     );
   }
