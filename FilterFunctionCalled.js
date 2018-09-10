@@ -123,6 +123,7 @@ const items = [{
     "experience":3,
     "location": "Delhi"
 }];
+
 filter = {
     location: ["Delhi", "Bengaluru", "Pune"]
   };
@@ -131,9 +132,6 @@ export default class FilterFunctionCalled extends Component {
     //temp = ["Delhi", "Bengaluru", "Pune"];
     
     functionCall(array, filters) {
-        // console.log("Hello");
-        // console.log(JSON.stringify(array));
-        // console.log(JSON.stringify(filters));
         test = this.testMethod(array, filters);
         console.log(test);
      }

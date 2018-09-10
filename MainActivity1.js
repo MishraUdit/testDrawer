@@ -5,11 +5,10 @@ import {
   View,
   FlatList,
   Text,
-  Modal,
-  Slider
+  ActivityIndicator,
 } from 'react-native';
 import DataCardView from './DataCardView';
-
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 const filternames = [{
     "id": 1,
     "filtername": "Job"
@@ -23,6 +22,29 @@ const filternames = [{
     "id": 4,
     "filtername": "Location"
 }];
+
+const filterItems = [
+    {  
+      name: "Location",
+      id: 0,
+      children: [{
+        "id" : 1,
+        "name": "Bengaluru"
+    },{
+        "id" : 2,
+        "name": "Chennai"
+    },{
+        "id" : 3,
+        "name": "Delhi"
+    },{
+        "id" : 4,
+        "name": "Noida"
+    },{
+        "id" : 5,
+        "name": "Pune"
+    }]
+    },
+  ];
 
 const items = [{
     "id": 1,
@@ -150,68 +172,109 @@ class MainActivity extends Component {
     constructor(props) {
       super(props);
       this.state = { 
-        isLoading: true,
+        isLoading: false,
         PickerValueHolder : '',
         isSelected: false,
         modalVisible: false,
+        ListofAllJobs: items,
       }
     //   this.props.ScreenProps.key
     }
 
-    GetFlatListItem (item) {
-    var str = JSON.stringify(item)
-    switch(str){
-        case '1':
-        this.props.navigation.navigate('Filter1')
-        break;
-
-        case '2':
-        this.props.navigation.navigate('Filter2')
-        break;
-
-        case '3':
-        this.props.navigation.navigate('Filter3')
-        break;
-
-        case '4':
-        this.props.navigation.navigate('Filter4', {filterLocation :this.functionFoo})
-        break;
-
+    componentDidMount(){
+        console.log(this.state.ListofAllJobs);
     }
+
+    GetFlatListItem (item) {
+        var str = JSON.stringify(item)
+        switch(str){
+            case '1':
+            this.props.navigation.navigate('Filter1')
+            break;
+
+            case '2':
+            this.props.navigation.navigate('Filter2')
+            break;
+
+            case '3':
+            this.props.navigation.navigate('Filter3')
+            break;
+
+            case '4':
+            // this.props.navigation.navigate('Filter4', {filterLocation :this.functionFoo})
+            this.SectionedMultiSelect._toggleSelector()
+            break;
+        }
     } 
 
     functionFoo = () => {
         console.log("test");
     }
  
- FlatListItemSeparator = () => {
-     return (
-       <View
-         style={{
-           margin: 5,
-           backgroundColor: "#607D8B",
+    FlatListItemSeparator = () => {
+        return (
+        <View
+            style={{
+            margin: 5,
+            backgroundColor: "#607D8B",
 
-         }}
-       />
-     );
-   }
+            }}
+        />
+        );
+    }
 
-   _onPressStarIcon = () => {
-     if(this.state.isSelected != true){
-      this.setState({isSelected: true})
-     }
-      else{
-      this.setState({isSelected: false})
+    _onPressStarIcon = () => {
+        if(this.state.isSelected != true){
+        this.setState({isSelected: true})
+        }
+        else{
+        this.setState({isSelected: false})
 
-      } 
-   }
+        } 
+    }
 
-   setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
+    setModalVisible(visible) {
+        this.setState({modalVisible: visible});
+    }
 
+    onSelectedItemsChange = selectedItems => {
+        this.setState({ selectedItems });
+    };
 
-  
+    onSelectedItemObjectsChange = (selectedItemObjects) => {
+        var name =[];
+        selectedItemObjects.forEach((element) => {
+            name.push(element.name)
+        });
+        console.log('start------>>>')
+        selectedItemObjects.forEach((element) => {
+            console.log(element);
+        })
+        filterLocation  = {location: name}
+        this.setState({
+            selectedLocations : {location: name}
+        });
+    }
+
+            // selectedLocations will be like: 
+            // filter = {
+            //     location: ["Delhi", "Bengaluru", "Pune"]
+            //   };
+
+    functionCall(array, filters) {
+        test = this.testMethod(array, filters);
+        console.log(test);
+        this.setState({ListofAllJobs: test})
+    }
+    testMethod = (array, filters) => {
+        const filterKeys = Object.keys(filters);
+        // filters all elements passing the criteria
+        return array.filter((item) => {
+            // dynamically validate all filter criteria
+        return filterKeys.every(key => !!~filters[key].indexOf(item[key]));
+        });
+    }
+
     render()
      {
         return(
@@ -230,12 +293,26 @@ class MainActivity extends Component {
               </View>
               <FlatList
                     style = {{paddingBottom: 10, marginBottom: 100}}
-                    data={ items }
+                    data={ this.state.ListofAllJobs }
                     ItemSeparatorComponent = {this.FlatListItemSeparator}
                     renderItem={({item}) => <DataCardView data ={item}/>}
                     keyExtractor={(item, index) => index}
                   />
-              <Modal
+                   <SectionedMultiSelect
+                        items={filterItems} 
+                        uniqueKey='id'
+                        subKey='children'
+                        selectText='Choose some things...'
+                        showDropDowns={true}
+                        readOnlyHeadings={true}
+                        onSelectedItemsChange={this.onSelectedItemsChange}
+                        selectedItems={this.state.selectedItems}
+                        onSelectedItemObjectsChange={this.onSelectedItemObjectsChange}
+                        ref={SectionedMultiSelect => this.SectionedMultiSelect = SectionedMultiSelect}
+                        onConfirm = {() => this.functionCall(items, filterLocation)}
+                    />
+
+              {/* <Modal
                 animationType="slide"
                 transparent={false}
                 visible={this.state.modalVisible}
@@ -251,7 +328,7 @@ class MainActivity extends Component {
                     <Text>Distance (in meters): {this.state.value}</Text>
                     </View>
                 </View>
-            </Modal>
+            </Modal> */}
             </View>
         );
      }
